@@ -1,6 +1,7 @@
 package com.example.interfaceviewbinding
 
 import android.app.Notification.Action
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -30,8 +31,12 @@ class ToolbarActionbarActivity : AppCompatActivity() {
 
     private fun inicializarToolBar() {
 
-        binding.tbPrincipal.title = "Youtube"
-        binding.tbPrincipal.setTitleTextColor(
+        binding.btnAbrirNova.setOnClickListener {
+            startActivity(Intent(this, NovaActivity::class.java))
+        }
+
+        binding.includeToolbar.tbPrincipal.title = "Youtube"
+        binding.includeToolbar.tbPrincipal.setTitleTextColor(
             ContextCompat.getColor(this, R.color.white)
         )
 
@@ -61,7 +66,7 @@ class ToolbarActionbarActivity : AppCompatActivity() {
 //        }
 //        binding.tbPrincipal.subtitle = "Mais detalhes"
 
-        setSupportActionBar(binding.tbPrincipal)
+        setSupportActionBar(binding.includeToolbar.tbPrincipal)
         inicializarActionBar()
     }
 
